@@ -1,0 +1,400 @@
+*::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+*::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  @import url(https://fonts.googleapis.com/css?family=Gudea:400,700);
+  font-family: "Gudea", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "lptech-font";
+  src: url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.eot");
+  src: url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.eot?#iefix") format("embedded-opentype"), url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.woff") format("woff"), url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.ttf") format("truetype"), url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.svg#lptech-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.error-message {
+  color: rgb(228, 27, 27) !important;
+  font-size: 12px !important;
+}
+
+.home {
+  background-image: url("http://localhost/learn/Final_Project/assets/imgs/bg.png");
+  background-repeat: repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .information_form {
+  width: fit-content;
+  padding: 40px 60px;
+  border-radius: 20px;
+  border: solid 2px rgb(248, 101, 48);
+  background-color: white;
+}
+.home .information_form h1 span {
+  text-transform: capitalize;
+}
+.home .information_form > p {
+  font-size: 24px;
+  font-weight: 600;
+}
+.home .information_form div p {
+  font-size: 18px;
+}
+.home .information_form .block_handle {
+  margin-top: 40px;
+}
+.home .information_form .block_handle .update_infor, .home .information_form .block_handle .logout {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 20px 36px;
+  margin: 0px 12px;
+  border-radius: 20px;
+  border: solid 2px rgb(248, 101, 48);
+  color: rgb(248, 101, 48);
+}
+.home .information_form .block_handle .update_infor {
+  background-image: url("http://localhost/learn/Final_Project/assets/imgs/bg.png");
+}
+.home .information_form .block_handle .update_infor:hover {
+  color: white;
+  background-color: rgb(248, 101, 48);
+  background-image: none;
+}
+.home .information_form .block_handle .logout {
+  color: white;
+  background-color: rgb(248, 101, 48);
+}
+.home .information_form .block_handle .logout:hover {
+  background-image: url("http://localhost/learn/Final_Project/assets/imgs/bg.png");
+}
+
+.login-form {
+  width: 500px;
+  height: fit-content;
+  border: solid 2px rgb(248, 101, 48);
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  padding: 52px 40px 40px 40px;
+  background: white;
+}
+.login-form h1 {
+  margin-top: 8px;
+  color: #636364;
+  height: 60px;
+  text-align: left;
+  font-size: 30px;
+}
+.login-form p {
+  font-size: 16px;
+  color: #818183;
+  margin-bottom: 4px;
+}
+.login-form input:-webkit-autofill,
+.login-form input:-webkit-autofill:hover,
+.login-form input:-webkit-autofill:focus,
+.login-form input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #818183;
+}
+.login-form input[type=password]:-webkit-autofill,
+.login-form input[type=password]:-webkit-autofill:hover,
+.login-form input[type=password]:-webkit-autofill:focus,
+.login-form input[type=password]:-webkit-autofill:active {
+  -webkit-text-fill-color: rgb(248, 101, 48);
+}
+.login-form input[type=password] {
+  color: rgb(248, 101, 48) !important;
+}
+.login-form input[type=text],
+.login-form input[type=password] {
+  padding: 10px 10px;
+  width: 100%;
+  color: #818183;
+  margin-top: -2px;
+  background: white;
+  left: 0;
+  border-radius: 10px;
+  border: 2px solid #818183;
+  outline: none;
+  font-family: "Gudea", sans-serif;
+  box-shadow: none;
+}
+.login-form button,
+.login-form .register-btn {
+  margin-top: 40px;
+  width: 100%;
+  border-radius: 50px;
+  background: transparent;
+  padding: 10px 0px;
+  border: solid 2px rgb(248, 101, 48);
+  color: rgb(248, 101, 48);
+  text-transform: uppercase;
+  font-size: 14px;
+  transition-duration: 0.2s;
+}
+.login-form button:hover,
+.login-form .register-btn:hover {
+  color: white;
+  background: rgb(248, 101, 48);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.login-form .register-btn {
+  padding: 0px;
+  margin-top: 16px;
+  display: flex;
+}
+.login-form .register-btn a {
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 10px 0px;
+  color: rgb(248, 101, 48);
+}
+.login-form .register-btn:hover {
+  color: white;
+  background: rgb(248, 101, 48);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.login-form .register-btn:hover a {
+  color: white;
+}
+
+.register {
+  background-image: url("http://localhost/learn/Final_Project/assets/imgs/bg.png");
+  background-repeat: repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register .register-form {
+  width: fit-content;
+  padding: 40px 60px;
+  border-radius: 20px;
+  border: solid 2px rgb(248, 101, 48);
+  background-color: white;
+}
+.register .register-form h1 {
+  margin: 30px 0px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2rem;
+  color: rgb(64, 64, 65);
+}
+.register .register-form div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.register .register-form div label {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 48px;
+  color: #636364;
+}
+.register .register-form div input:-webkit-autofill,
+.register .register-form div input:-webkit-autofill::first-line,
+.register .register-form div input:-webkit-autofill:hover,
+.register .register-form div input:-webkit-autofill:focus,
+.register .register-form div input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #818183;
+}
+.register .register-form div input {
+  font-size: 16px;
+  margin-left: 24px;
+  padding: 10px 10px;
+  width: 240px;
+  color: #818183;
+  background: white;
+  left: 0;
+  border-radius: 10px;
+  border: 2px solid #818183;
+  outline: none;
+  font-family: "Gudea", sans-serif;
+  box-shadow: none;
+}
+.register .register-form .register-btn {
+  font-size: 16px;
+  margin-top: 40px;
+  width: 100%;
+  border-radius: 50px;
+  background: transparent;
+  padding: 10px 0px;
+  border: solid 2px rgb(248, 101, 48);
+  color: rgb(248, 101, 48);
+  text-transform: uppercase;
+  transition-duration: 0.2s;
+}
+.register .register-form .register-btn:hover {
+  color: white;
+  background: rgb(248, 101, 48);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.register .register-form .cancel {
+  border-radius: 50px;
+  border: solid 2px rgb(248, 101, 48);
+  padding: 0px;
+  margin-top: 16px;
+  display: flex;
+}
+.register .register-form .cancel a {
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 10px 0px;
+  color: rgb(248, 101, 48);
+}
+.register .register-form .cancel:hover {
+  color: white;
+  background: rgb(248, 101, 48);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.register .register-form .cancel:hover a {
+  color: white;
+}
+
+.updatainfor {
+  background-image: url("http://localhost/learn/Final_Project/assets/imgs/bg.png");
+  background-repeat: repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.updatainfor-form {
+  width: fit-content;
+  padding: 40px 60px;
+  border-radius: 20px;
+  border: solid 2px rgb(248, 101, 48);
+  background-color: white;
+}
+.updatainfor-form h1 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 28px;
+  color: rgb(64, 64, 65);
+}
+.updatainfor-form div {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.updatainfor-form div label {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 39px;
+  color: #636364;
+}
+.updatainfor-form div input:-webkit-autofill,
+.updatainfor-form div input:-webkit-autofill::first-line,
+.updatainfor-form div input:-webkit-autofill:hover,
+.updatainfor-form div input:-webkit-autofill:focus,
+.updatainfor-form div input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #818183;
+}
+.updatainfor-form div input {
+  font-size: 16px;
+  margin-left: 24px;
+  padding: 10px 10px;
+  width: 240px;
+  color: #818183;
+  background: white;
+  left: 0;
+  border-radius: 10px;
+  border: 2px solid #818183;
+  outline: none;
+  font-family: "Gudea", sans-serif;
+  box-shadow: none;
+}
+.updatainfor-form div .correct {
+  display: none;
+  position: absolute;
+  font-size: 20px;
+  top: 12px;
+  right: 8px;
+  color: rgb(18, 136, 18);
+}
+.updatainfor-form div .incorrect {
+  display: none;
+  position: absolute;
+  font-size: 20px;
+  top: 12px;
+  right: 8px;
+  color: rgb(211, 16, 16);
+}
+.updatainfor-form .updateinfor-btn {
+  font-size: 16px;
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 50px;
+  background: transparent;
+  padding: 10px 0px;
+  border: solid 2px rgb(248, 101, 48);
+  color: rgb(248, 101, 48);
+  text-transform: uppercase;
+  transition-duration: 0.2s;
+}
+.updatainfor-form .updateinfor-btn:hover {
+  color: white;
+  background: rgb(248, 101, 48);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.updatainfor-form .cancel {
+  border-radius: 50px;
+  border: solid 2px rgb(248, 101, 48);
+  padding: 0px;
+  margin-top: 16px;
+  display: flex;
+}
+.updatainfor-form .cancel a {
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 10px 0px;
+  color: rgb(248, 101, 48);
+}
+.updatainfor-form .cancel:hover {
+  color: white;
+  background: rgb(248, 101, 48);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.updatainfor-form .cancel:hover a {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

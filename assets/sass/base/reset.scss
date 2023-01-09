@@ -1,0 +1,47 @@
+* {
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    @import url(https://fonts.googleapis.com/css?family=Gudea:400,700);
+    font-family: 'Gudea', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "lptech-font";
+    src: url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.eot");
+    src: url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.eot?#iefix") format("embedded-opentype"),
+        url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.woff") format("woff"),
+        url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.ttf") format("truetype"),
+        url("http://localhost/learn/Final_Project/assets/vendor/fonts/lptech-font.svg#lptech-font") format("svg");
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.error-message {
+    color: rgb(228, 27, 27) !important;
+    font-size: 12px !important;
+}

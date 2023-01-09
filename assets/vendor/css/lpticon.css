@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+[data-icon]:before {
+  font-family: "lptech-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="lp-"]:before,
+[class*=" lp-"]:before {
+  font-family: "lptech-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lp-arrow-left:before {
+  content: "\61";
+}
+.lp-arrow-right:before {
+  content: "\62";
+}
+.lp-arrow-right-circle:before {
+  content: "\63";
+}
+.lp-check:before {
+  content: "\64";
+}
+.lp-close:before {
+  content: "\65";
+}
+.lp-close-button:before {
+  content: "\66";
+}
+.lp-contact:before {
+  content: "\67";
+}
+.lp-discount:before {
+  content: "\68";
+}
+.lp-down:before {
+  content: "\69";
+}
+.lp-email:before {
+  content: "\6a";
+}
+.lp-facebook:before {
+  content: "\6b";
+}
+.lp-girl:before {
+  content: "\6c";
+}
+.lp-heart:before {
+  content: "\6d";
+}
+.lp-join:before {
+  content: "\6e";
+}
+.lp-location:before {
+  content: "\6f";
+}
+.lp-menu:before {
+  content: "\70";
+}
+.lp-message:before {
+  content: "\71";
+}
+.lp-news:before {
+  content: "\72";
+}
+.lp-phone:before {
+  content: "\73";
+}
+.lp-price:before {
+  content: "\74";
+}
+.lp-rule:before {
+  content: "\75";
+}
+.lp-schedule:before {
+  content: "\76";
+}
+.lp-search:before {
+  content: "\77";
+}
+.lp-star:before {
+  content: "\78";
+}
+.lp-support:before {
+  content: "\79";
+}
+.lp-time:before {
+  content: "\7a";
+}
+.lp-twitter:before {
+  content: "\41";
+}
+.lp-video:before {
+  content: "\42";
+}
+.lp-zalo:before {
+  content: "\43";
+}
