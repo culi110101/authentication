@@ -1,0 +1,29 @@
+.add_article {
+    padding-bottom: 40px;
+    h1{
+        margin: 24px 0px;
+        text-align: center;
+        font-weight: 650;
+        text-transform: uppercase;
+    }
+    h2{
+        text-align: start;
+    }
+    input {
+        padding: 12px;
+        height: 52px;
+        border: 2px solid #eee;
+        border-radius: 10px;
+        width: 100%;
+        &:focus-visible{
+            outline:none;
+        }
+    }
+
+    .tox-statusbar {
+        display: none !important;
+    }
+    button{
+        margin-top: 40px;
+    }
+}

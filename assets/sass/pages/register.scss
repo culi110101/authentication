@@ -7,36 +7,47 @@
     align-items: center;
 
     .register-form {
-        width: fit-content;
-        padding: 40px 60px;
-        border-radius: 20px;
-        border: solid 2px rgb(248, 101, 48);
-        background-color: white;
+        margin: auto;
+        padding: 0px;
+        border-radius: 4px;
+        background: white;
+        overflow: hidden;
+        border: solid 2px rgba(252, 43, 43, 0.75);
 
-        h1 { 
-            margin: 30px 0px;
-            font-weight: 700;
-            text-align: center;
-            text-transform: capitalize;
-            font-size: 2rem;
-            color: rgb(64, 64, 65);
+        &__design {
+            background: url(http://localhost/learn/Final_Project/assets/imgs/bg_login.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            &>div {
+                padding: 52px 40px;
+                height: 100%;
+                background-color: rgba(252, 43, 43, 0.75);
+                text-align: center;
+                color: white;
+
+                img {
+                    width: 60%;
+                    filter: brightness(0) invert(1);
+                }
+
+            }
         }
 
-        div {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 16px;
+        &__content {
+            padding: 52px 60px;
 
-            label {
-                font-size: 22px;
+            h1 {
+                margin-bottom: 52px;
+                color: rgba(252, 43, 43, 1);
+                height: 38px;
+                text-align: left;
+                font-size: 30px;
                 font-weight: 600;
-                line-height: 48px;
-                color: #636364;
-
             }
 
             input:-webkit-autofill,
-            input:-webkit-autofill::first-line,
             input:-webkit-autofill:hover,
             input:-webkit-autofill:focus,
             input:-webkit-autofill:active {
@@ -44,66 +55,98 @@
                 -webkit-text-fill-color: #818183;
             }
 
-            input {
-                font-size: 16px;
-                margin-left: 24px;
-                padding: 10px 10px;
-                width: 240px;
+            input[type='password']:-webkit-autofill,
+            input[type='password']:-webkit-autofill:hover,
+            input[type='password']:-webkit-autofill:focus,
+            input[type='password']:-webkit-autofill:active {
+                -webkit-text-fill-color: rgb(252, 43, 43);
+            }
+
+            input[type='password'] {
+                color: rgb(252, 43, 43) !important;
+            }
+
+            input[type='text'],
+            input[type='password'] {
+                padding: 10px 0px;
+                margin-bottom: 24px;
+                width: 100%;
+                font-size: 18px;
                 color: #818183;
                 background: white;
-                left: 0;
-                border-radius: 10px;
-                border: 2px solid #818183;
+                border: none;
+                border-bottom: 2px solid #c0bfbf;
                 outline: none;
-                font-family: 'Gudea', sans-serif;
                 box-shadow: none;
+
+                &:focus {
+                    border-bottom: 2px solid rgb(252, 43, 43);
+                }
             }
 
-        }
+            input[type='text'] {
+                font-weight: 600;
 
-        .register-btn {
-            font-size: 16px;
-            margin-top: 40px;
-            width: 100%;
-            border-radius: 50px;
-            background: transparent;
-            padding: 10px 0px;
-            border: solid 2px rgb(248, 101, 48);
-            color: rgb(248, 101, 48);
-            text-transform: uppercase;
-            transition-duration: .2s;
-
-            &:hover {
-                color: white;
-                background: rgb(248, 101, 48);
-                cursor: pointer;
-                transition-duration: .2s;
+                &::placeholder {
+                    font-weight: 500;
+                }
             }
-        }
-        .cancel {
-            border-radius: 50px;
-            border: solid 2px rgb(248, 101, 48);
-            padding: 0px;
-            margin-top: 16px;
-            display: flex;
-    
-            // justify-content: center;
-            a {
-                text-align: center;
-                text-transform: uppercase;
+
+            button,
+            .cancel {
+                margin-top: 40px;
                 width: 100%;
+                border-radius: 50px;
+                background: transparent;
                 padding: 10px 0px;
-                color: rgb(248, 101, 48);
-            }
-    
-            &:hover {
-                color: white;
-                background: rgb(248, 101, 48);
-                cursor: pointer;
+                border: solid 2px rgb(252, 43, 43);
+                color: rgb(252, 43, 43);
+                text-transform: uppercase;
+                font-size: 18px;
                 transition-duration: .2s;
-    
-                a {
+
+                &:hover {
                     color: white;
+                    background: rgb(252, 60, 48);
+                    cursor: pointer;
+                    transition-duration: .2s;
+                }
+            }
+
+            .cancel {
+                padding: 0px;
+                margin-top: 16px;
+                display: flex;
+
+                a {
+                    text-align: center;
+                    text-transform: uppercase;
+                    width: 100%;
+                    padding: 10px 0px;
+                    color: rgb(252, 43, 43);
+                }
+
+                &:hover {
+                    color: white;
+                    background: rgb(252, 60, 48);
+                    cursor: pointer;
+                    transition-duration: .2s;
+
+                    a {
+                        color: white;
+                    }
+                }
+            }
+            form{
+                div{
+                    position: relative;
+                    label[class='error']{
+                        position: absolute;
+                        bottom:2px;
+                        left: 0px;
+                        font-size: 12px;
+                        color: red;
+                    }
                 }
             }
         }

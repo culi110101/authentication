@@ -42,6 +42,15 @@ a {
 }
 
 .error-message {
-    color: rgb(228, 27, 27) !important;
-    font-size: 12px !important;
+    margin: 24px 0px;
+    padding: 14px 8px;
+    background-color: rgb(247, 205, 205);
+    border-radius: 8px;
+
+    p {
+        margin: 0px!important;
+        color: rgb(156, 21, 21) !important;
+        font-size: 16px !important;
+        line-height: 36px;
+    }
 }

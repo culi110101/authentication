@@ -12,6 +12,7 @@
                     <a href="?page=updateinfor" class="update_infor">Thay đổi thông tin</a>
                     <a href="?action=logout" class="logout">Logout</a>
                 </div>
+                <a href="?page=add_article" class="logout">add article</a>
             </div>
         </div>
     </div>

@@ -1,108 +1,126 @@
 .login-form {
-    width: 500px;
-    height: fit-content;
-    border: solid 2px rgb(248, 101, 48);
-    border-radius: 20px;
-    position: absolute;
-    left: 0;
-    right: 0;
     margin: auto;
-    top: 0;
-    bottom: 0;
-    padding: 52px 40px 40px 40px;
+    padding: 0%;
+    border-radius: 4px;
     background: white;
+    overflow: hidden;
+    border: solid 2px rgba(252, 43, 43,0.75);
 
-    h1 {
-        margin-top: 8px;
-        color: #636364;
-        height: 60px;
-        text-align: left;
-        font-size: 30px;
-    }
+    &__design {
+        background: url(http://localhost/learn/Final_Project/assets/imgs/bg_login.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
 
-    p {
-        font-size: 16px;
-        color: #818183;
-        margin-bottom: 4px;
-    }
-
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
-        -webkit-box-shadow: 0 0 0 30px white inset !important;
-        -webkit-text-fill-color: #818183;
-    }
-
-    input[type='password']:-webkit-autofill,
-    input[type='password']:-webkit-autofill:hover,
-    input[type='password']:-webkit-autofill:focus,
-    input[type='password']:-webkit-autofill:active {
-        -webkit-text-fill-color: rgb(248, 101, 48);
-    }
-
-    input[type='password'] {
-        color: rgb(248, 101, 48) !important;
-    }
-
-    input[type='text'],
-    input[type='password'] {
-        padding: 10px 10px;
-        width: 100%;
-        color: #818183;
-        margin-top: -2px;
-        background: white;
-        left: 0;
-        border-radius: 10px;
-        border: 2px solid #818183;
-        outline: none;
-        font-family: 'Gudea', sans-serif;
-        box-shadow: none;
-    }
-
-    button,
-    .register-btn {
-        margin-top: 40px;
-        width: 100%;
-        border-radius: 50px;
-        background: transparent;
-        padding: 10px 0px;
-        border: solid 2px rgb(248, 101, 48);
-        color: rgb(248, 101, 48);
-        text-transform: uppercase;
-        font-size: 14px;
-        transition-duration: .2s;
-
-        &:hover {
-            color: white;
-            background: rgb(248, 101, 48);
-            cursor: pointer;
-            transition-duration: .2s;
-        }
-    }
-
-    .register-btn {
-        padding: 0px;
-        margin-top: 16px;
-        display: flex;
-
-        // justify-content: center;
-        a {
+        div {
+            padding: 52px 40px;
+            height: 100%;
+            background-color: rgba(252, 43, 43, 0.75);
             text-align: center;
-            text-transform: uppercase;
-            width: 100%;
-            padding: 10px 0px;
-            color: rgb(248, 101, 48);
+            color: white;
+            img {
+                width: 60%;
+                filter: brightness(0) invert(1);
+            }
+            
+        }
+    }
+
+    &__content {
+        padding: 52px 40px;
+        h1 {
+            margin-bottom: 52px;
+            color: rgba(252, 43, 43, 1);
+            height: 38px;
+            text-align: left;
+            font-size: 30px;
+            font-weight: 600;
         }
 
-        &:hover {
-            color: white;
-            background: rgb(248, 101, 48);
-            cursor: pointer;
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+            -webkit-text-fill-color: #818183;
+        }
+
+        input[type='password']:-webkit-autofill,
+        input[type='password']:-webkit-autofill:hover,
+        input[type='password']:-webkit-autofill:focus,
+        input[type='password']:-webkit-autofill:active {
+            -webkit-text-fill-color: rgb(252, 43, 43);
+        }
+
+        input[type='password'] {
+            color: rgb(252, 43, 43) !important;
+        }
+
+        input[type='text'],
+        input[type='password'] {
+            padding: 10px 0px;
+            margin-bottom: 24px;
+            width: 100%;
+            font-size: 18px;
+            color: #818183;
+            background: white;
+            border: none;
+            border-bottom: 2px solid #c0bfbf;
+            outline: none;
+            box-shadow: none;
+            &:focus{
+                border-bottom: 2px solid rgb(252, 43, 43);
+            }
+        }
+        input[type='text']{
+            font-weight: 600;
+            &::placeholder{
+                font-weight: 500;
+            }
+        }
+
+        button,
+        .register-btn {
+            margin-top: 40px;
+            width: 100%;
+            border-radius: 50px;
+            background: transparent;
+            padding: 10px 0px;
+            border: solid 2px rgb(252, 43, 43);
+            color: rgb(252, 43, 43);
+            text-transform: uppercase;
+            font-size: 18px;
             transition-duration: .2s;
 
-            a {
+            &:hover {
                 color: white;
+                background: rgb(252, 60, 48);
+                cursor: pointer;
+                transition-duration: .2s;
+            }
+        }
+
+        .register-btn {
+            padding: 0px;
+            margin-top: 16px;
+            display: flex;
+            a {
+                text-align: center;
+                text-transform: uppercase;
+                width: 100%;
+                padding: 10px 0px;
+                color: rgb(252, 43, 43);
+            }
+
+            &:hover {
+                color: white;
+                background: rgb(252, 60, 48);
+                cursor: pointer;
+                transition-duration: .2s;
+
+                a {
+                    color: white;
+                }
             }
         }
     }
