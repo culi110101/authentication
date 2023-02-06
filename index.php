@@ -1,20 +1,19 @@
 <?php
 session_start();
-require_once 'function.php';
-require_once 'autoload.php';
-//Khai báo utf-8 để hiển thị được tiếng việt
-header('Content-Type: text/html; charset=UTF-8');
+define('DS', DIRECTORY_SEPARATOR);
+define('BASE_PATH', __DIR__ . DS);
+define('TEMPLATE_EXT', '.tpl');
+require BASE_PATH . 'vendor/autoload.php';
+require BASE_PATH . 'autoload.php';
+require BASE_PATH . 'function.php';
 
-$action = isset($_GET["action"]) ? $_GET["action"] : null;
+$app            = System\App::instance();
+$app->request   = System\Request::instance();
+$app->route     = System\Route::instance($app->request);
+
+$route          = $app->route;
+
+require BASE_PATH . 'routes.php';
 
 
-
-//get pages client want to connect
-$page = isset($_GET["page"]) ? $_GET["page"] : 'home';
-if (!is_null($action)) {
-    $page = 'post'.ucfirst($action);
-}
-
-$model = new Model();
-$controller = new Controller();
-$controller->$page();
+$route->end();

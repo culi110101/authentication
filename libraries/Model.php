@@ -1,8 +1,16 @@
 <?php
 require_once 'Database.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class Model extends Database
 {
+    public $mail;
+    public function __construct()
+    {
+        $this->mail = new PHPMailer(true);
+    }
     public function login()
     {
         //Xử lý đăng nhập
@@ -37,6 +45,7 @@ class Model extends Database
             header("Location: /learn/Final_Project/");
             die();
         }
+        
     }
 
     public function getInforById()
@@ -45,9 +54,9 @@ class Model extends Database
         $row = $this->querySellect(["dbauthentication.user_information.name", "dbauthentication.user_information.phone_number", "dbauthentication.user_information.address"], "dbauthentication.user_information", ["dbauthentication.user_information.account_id" => "UUID_TO_BIN('$idforfind')"]);
         return $row;
     }
-    public function getArticleById()
+    public function getArticleById($slug)
     {
-        $row = $this->querySellect(["dbauthentication.article.title", "dbauthentication.article.intro", "dbauthentication.article.content","dbauthentication.article.avatar_url"], "dbauthentication.article", ["dbauthentication.article.id" => 4]);
+        $row = $this->querySellect(["dbauthentication.article.title", "dbauthentication.article.intro", "dbauthentication.article.content","dbauthentication.article.avatar_url"], "dbauthentication.article", ["dbauthentication.article.slug" => "'$slug'"]);
         return $row;
     }
     public function getAllArticle()
@@ -58,7 +67,7 @@ class Model extends Database
     public function register()
     {
         if (isset($_POST['register'])) {
-            //Lấy dữ liệu nhập vào
+            // Lấy dữ liệu nhập vào
             $accountname = addslashes($_POST['account_name']);
             $email = addslashes($_POST['email']);
             $password = addslashes($_POST['password']);
@@ -83,47 +92,45 @@ class Model extends Database
                 $verified_code .= $characters[rand(0, $charactersLength - 1)];
             }
             $verified_code = md5($verified_code);
-            // //tạo tài khoản mới   
-            // // $this->queryInsert(['UUID_TO_BIN(UUID())', "'$accountname'", "'$email'", "'$password'"], ['dbauthentication.account (id, accountname, email, password)']);
+            //tạo tài khoản mới   
+            // $this->queryInsert(['UUID_TO_BIN(UUID())', "'$accountname'", "'$email'", "'$password'"], ['dbauthentication.account (id, accountname, email, password)']);
             // $this->queryInsert(['UUID_TO_BIN(UUID())', "'$accountname'", "'$email'", "'$password'", "'$verified_code'", "'$created'"], ['dbauthentication.account (id, accountname, email, password,verified_code,created)']);
-
-
-            $verificationLink = "http://example.com/activate.php?code=" . $verified_code;
-
-            $htmlStr = "";
-            $htmlStr .= "Hi " . $email . ",<br /><br />";
-
-            $htmlStr .= "Please click the button below to verify your subscription and have access to the download center.<br /><br /><br />";
-            $htmlStr .= "<a href='{$verificationLink}' target='_blank' style='padding:1em; font-weight:bold; background-color:blue; color:#fff;'>VERIFY EMAIL</a><br /><br /><br />";
-
-            $htmlStr .= "Kind regards,<br />";
-            $htmlStr .= "<a href='https://www.hoangweb.com/' target='_blank'>Dịch vụ thiết kế web giá rẻ</a><br />";
-
-
-            $name = "Hoangweb.com";
-            $email_sender = "buidinhxuanit@gmail.com";
-            $subject = "Verification Link | Thiết kế web giá rẻ | Subscription";
-            $recipient_email = $email;
-
-            $headers  = "MIME-Version: 1.0rn";
-            $headers .= "Content-type: text/html; charset=iso-8859-1rn";
-            $headers .= "From: {$name} <{$email_sender}> n";
-
-            $body = $htmlStr;
-
-            // send email using the mail function, you can also use php mailer library if you want
-            if (mail($recipient_email, $subject, $body, $headers)) {
-
-                // tell the user a verification email were sent
-                var_dump("yes");
+            try {
+                //Server settings
+                $this->mail->isSMTP();                                            //Send using SMTP
+                $this->mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                $this->mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $this->mail->Username   = 'xuanbuidemoemail@gmail.com';                     //SMTP username
+                $this->mail->Password   = 'csickxixdjfwffdk';                               //SMTP password
+                $this->mail->SMTPSecure = "tls";            //Enable implicit TLS encryption
+                $this->mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                
+                //Recipients
+                $this->mail->setFrom('from@example.com', 'Mailer');
+                $this->mail->addAddress('buidinhxuanit@gmail.com', 'Joe User');     //Add a recipient
+                // $this->mail->addAddress('ellen@example.com');               //Name is optional
+                $this->mail->addReplyTo('info@example.com', 'Information');
+                $this->mail->addCC('cc@example.com');
+                $this->mail->addBCC('bcc@example.com');
+                
+                // //Attachments
+                // $this->mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                // $this->mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+                
+                //Content
+                $this->mail->isHTML(true);                                  //Set email format to HTML
+                $this->mail->Subject = 'Verify your account 2';
+                $this->mail->Body    = '<a href="http://localhost/learn/Final_Project/verify">click here</a> to verify your account';
+                $this->mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                
+                // ddd($this->mail);
+                $this->mail->send();
+                echo("tài khoản đã được tạo thành công");
                 die();
-            } else {
-                var_dump("no");
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
                 die();
             }
-            // //thêm thông tin người dung vào tài khoản đã đăng kí
-            // $account_id = $this->querySellect(['BIN_TO_UUID(id) id', 'accountname', 'password'], 'dbauthentication.account', ['accountname' => "'$accountname'"])[0];
-            // $this->queryInsert(['UUID_TO_BIN(UUID())', "UUID_TO_BIN('$account_id')", "'$username'", "'$phonenumber'", "'$address'"], ['dbauthentication.user_information (id, account_id, name,phone_number,address)']);
         }
     }
     public function updateinfor()
@@ -133,7 +140,7 @@ class Model extends Database
             $phonenumber = addslashes($_POST['phonenumber']);
             $address = addslashes($_POST['address']);
             $idforfind = getSession('account_id');
-
+            
             //thêm thông tin người dung vào tài khoản đã đăng kí
             $this->queryUpdate(['name' => "'$username'", 'phone_number' => "'$phonenumber'", 'address' => "'$address'"], "dbauthentication.user_information", ['account_id' => "UUID_TO_BIN('$idforfind')"]);
         }
@@ -163,7 +170,8 @@ class Model extends Database
             $intro = addslashes($_POST['intro']);
             $content = addslashes($_POST['content']);
             $img = 'http://localhost/learn/Final_Project/assets/imgs/'.addslashes($_POST['img']).'.jpg';
+            $slug=to_slug($title);
         }
-        $this->queryInsert(["'$title'", "'$intro'", "'$content'","'demo-slug'","'$img'"], ['dbauthentication.article (title, intro, content, slug, avatar_url)']);
+        $this->queryInsert(["'$title'", "'$intro'", "'$content'","'$slug'","'$img'"], ['dbauthentication.article (title, intro, content, slug, avatar_url)']);
     }
 }

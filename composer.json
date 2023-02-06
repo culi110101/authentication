@@ -1,0 +1,10 @@
+{
+    "require": {
+        "nezamy/route": "^1.3",
+        "lptech-asia/lp-recaptcha": "*",
+        "raveren/kint": "*",
+        "tracy/tracy":"2.9.*",
+        "twig/twig": "3.0",
+        "phpmailer/phpmailer": "^6.7"
+    }
+}
